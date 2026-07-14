@@ -1,17 +1,13 @@
 function Header(): React.JSX.Element {
   return (
-    <header
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "15px 20px",
-        borderBottom: "1px solid #333",
-      }}
-    >
-      <h1>📖 RecallPDF</h1>
+    <header className="flex items-center justify-between bg-slate-900 border-b border-slate-700 px-6 py-4">
+      <h1 className="text-2xl font-bold text-white">
+        📖 RecallPDF
+      </h1>
 
-      <button>📂 Open PDF</button>
+      <button className="rounded-md bg-blue-600 px-4 py-2 font-medium text-white hover:bg-blue-700">
+        📂 Open PDF
+      </button>
     </header>
   );
 }
