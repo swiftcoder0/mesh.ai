@@ -40,8 +40,8 @@ const FloatingToolbar: React.FC<{
 
   return (
    <div
-  className="fixed z-50 bg-[#2a2a3e] border border-gray-600 rounded-lg shadow-2xl flex items-center gap-1 p-1.5 transition-all duration-150 floating-toolbar"
-  style={{ left: x, top: y - 50 }}
+
+className="fixed z-50 bg-[#111827] border border-slate-600 rounded-xl shadow-2xl flex items-center gap-1 p-2 floating-toolbar"
 >
       <button
         onClick={() => onAction('define')}
@@ -187,15 +187,15 @@ function App() {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-[#1a1a2e] text-white">
+    <div className="h-screen flex flex-col bg-[#0B1120] text-white">
       <div className="flex items-center justify-between px-6 py-3 bg-[#16213e] border-b border-gray-700">
         <div className="flex items-center gap-4">
           <h1 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            📚 Recall PDF
+            ⚡ Mesh.AI
           </h1>
           <button
             onClick={openFile}
-            className="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-medium transition"
+           className="px-4 py-1.5 bg-cyan-600 hover:bg-cyan-700 rounded-lg text-sm font-medium transition"
           >
             📂 Open PDF
           </button>
@@ -211,14 +211,14 @@ function App() {
       </div>
 
       <div className="flex-1 flex overflow-hidden relative">
-        <div className="w-48 bg-[#0f1a2b] border-r border-gray-700 p-2 overflow-y-auto hidden md:block">
+       <div className="w-48 bg-[#111827] border-r border-slate-700 p-2 overflow-y-auto hidden md:block">
           <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Thumbnails</p>
           {Array.from(new Array(numPages || 0), (_, i) => i + 1).map((num) => (
             <button
               key={num}
               onClick={() => setPageNumber(num)}
               className={`w-full text-left px-3 py-1.5 text-sm rounded-md transition ${
-                pageNumber === num ? 'bg-blue-600 text-white' : 'hover:bg-gray-700 text-gray-300'
+                pageNumber === num ? 'bg-cyan-600 text-white' : 'hover:bg-gray-700 text-gray-300'
               }`}
             >
               Page {num}
@@ -226,7 +226,7 @@ function App() {
           ))}
         </div>
 
-        <div className="flex-1 overflow-auto p-4 bg-[#1e1e2f] relative" ref={textLayerRef}>
+        <div  className="flex-1 overflow-auto p-4 bg-[#0F172A] relative" ref={textLayerRef}>
           {error && (
             <div className="bg-red-900/50 border border-red-500 text-red-200 px-4 py-3 rounded-lg mb-4">
               ❌ {error}
@@ -258,12 +258,14 @@ function App() {
           ) : (
             <div className="flex flex-col items-center justify-center h-full text-gray-400">
               <p className="text-6xl mb-4">📄</p>
-              <p className="text-xl">Drop a PDF or click "Open PDF"</p>
+              <p className="text-xl font-semibold">
+Drop a PDF or click <span className="text-cyan-400">Open PDF</span>
+</p>
             </div>
           )}
 
           {aiResponse && (
-            <div className="fixed bottom-6 right-6 max-w-md bg-[#2a2a4e] border border-purple-500 rounded-xl p-4 shadow-2xl z-40">
+            <div className="fixed bottom-6 right-6 max-w-md bg-[#1E293B] border border-cyan-500 rounded-xl p-4 shadow-2xl z-40">
               <p className="text-sm text-gray-200">{aiResponse}</p>
               <button
                 onClick={() => setAiResponse('')}
